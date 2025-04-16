@@ -5,7 +5,7 @@ require_once __DIR__ . '/../config/config.php';
 $usuario_id = $_SESSION['usuario_id'];
 $pdo = getDBConnection();
 
-$stmt = $pdo->prepare('SELECT id, nome, email, categoria, tags, status FROM contatos WHERE usuario_id = ? ORDER BY nome ASC');
+$stmt = $pdo->prepare('SELECT id, nome, email, categoria, status FROM contatos WHERE usuario_id = ? ORDER BY nome ASC');
 $stmt->execute([$usuario_id]);
 $contatos = $stmt->fetchAll();
 
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <th>Nome</th>
                 <th>E-mail</th>
                 <th>Categoria</th>
-                <th>Tags</th>
+                    
                 <th>Status</th>
                 <th>Ações</th>
             </tr>
@@ -44,7 +44,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <td><?= htmlspecialchars($contato['nome']) ?></td>
                     <td><?= htmlspecialchars($contato['email']) ?></td>
                     <td><?= htmlspecialchars($contato['categoria']) ?></td>
-                    <td><?= htmlspecialchars($contato['tags']) ?></td>
                     <td><?= ucfirst($contato['status']) ?></td>
                     <td>
                         <a href="editar-contato.php?id=<?= $contato['id'] ?>" class="btn btn-sm btn-primary">Editar</a>
