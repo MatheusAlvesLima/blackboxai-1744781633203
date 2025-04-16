@@ -1,0 +1,18 @@
+/* Custom styles for MailMarket */
+
+body {
+    padding-top: 60px;
+    background-color: #f8f9fa;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+footer {
+    margin-top: 40px;
+    padding: 20px 0;
+    text-align: center;
+    color: #6c757d;
+}
